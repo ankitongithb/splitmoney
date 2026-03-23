@@ -1,0 +1,10 @@
+import client from './axiosClient'
+export const getTrips       = ()            => client.get('/trips')
+export const createTrip     = data          => client.post('/trips', data)
+export const getTrip        = id            => client.get(`/trips/${id}`)
+export const getTripMembers = id            => client.get(`/trips/${id}/members`)
+export const getTripExpenses = id           => client.get(`/trips/${id}/expenses`)
+export const addTripExpense = (id, data)    => client.post(`/trips/${id}/expenses`, data)
+export const getTripBalances  = id           => client.get(`/trips/${id}/balances`)
+export const deleteTrip       = id           => client.delete(`/trips/${id}`)
+export const addTripMember    = (tripId, memberId) => client.post(`/trips/${tripId}/members/${memberId}`)
