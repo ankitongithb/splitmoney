@@ -25,9 +25,6 @@ export default function Navbar() {
         <h1 className="page-title">{title}</h1>
       </div>
       <div className="flex-center gap-8">
-        <button onClick={toggle} className="btn btn-ghost" style={{ padding: 8, borderRadius: '50%' }} title="Toggle theme">
-          {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-        </button>
       </div>
     </div>
   )

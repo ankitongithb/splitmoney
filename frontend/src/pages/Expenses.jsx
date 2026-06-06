@@ -66,7 +66,7 @@ export default function Expenses() {
       </div>
 
       {/* Summary */}
-      <div className="card" style={{ marginBottom: 20, padding: '16px 20px', background: 'linear-gradient(135deg, var(--accent), #8b5cf6)' }}>
+      <div className="card" style={{ marginBottom: 20, padding: '16px 20px', background: 'var(--accent)' }}>
         <div style={{ color: '#ffffffaa', fontSize: 13 }}>Total {filter === 'All' ? '' : filter} Expenses</div>
         <div style={{ color: '#fff', fontSize: 28, fontWeight: 800, marginTop: 4 }}>{fmt(total)}</div>
         <div style={{ color: '#ffffffaa', fontSize: 12, marginTop: 2 }}>{filtered.length} transactions</div>

@@ -59,18 +59,18 @@ export default function Friends() {
     <div>
       {/* Summary cards */}
       <div className="grid-2" style={{ marginBottom: 20 }}>
-        <div className="card stat-card" style={{ background: 'linear-gradient(135deg,#dcfce7,#a7f3d0)' }}>
-          <div className="stat-icon" style={{ background: '#22c55e22', color: '#22c55e' }}><ArrowUpRight size={22} /></div>
+        <div className="card stat-card" style={{ background: 'var(--accent-light)' }}>
+          <div className="stat-icon" style={{ background: '#ffffff', color: 'var(--accent)' }}><ArrowUpRight size={22} /></div>
           <div>
-            <div className="stat-label" style={{ color: '#065f46' }}>You are Owed</div>
-            <div className="stat-value" style={{ color: '#065f46' }}>{fmt(totalOwed)}</div>
+            <div className="stat-label" style={{ color: 'var(--accent-dark)' }}>You are Owed</div>
+            <div className="stat-value" style={{ color: 'var(--accent-dark)' }}>{fmt(totalOwed)}</div>
           </div>
         </div>
-        <div className="card stat-card" style={{ background: 'linear-gradient(135deg,#fee2e2,#fca5a5)' }}>
-          <div className="stat-icon" style={{ background: '#ef444422', color: '#ef4444' }}><ArrowDownRight size={22} /></div>
+        <div className="card stat-card" style={{ background: 'var(--danger-bg)' }}>
+          <div className="stat-icon" style={{ background: '#ffffff', color: 'var(--danger)' }}><ArrowDownRight size={22} /></div>
           <div>
-            <div className="stat-label" style={{ color: '#7f1d1d' }}>You Owe</div>
-            <div className="stat-value" style={{ color: '#7f1d1d' }}>{fmt(totalOwe)}</div>
+            <div className="stat-label" style={{ color: 'var(--danger)' }}>You Owe</div>
+            <div className="stat-value" style={{ color: 'var(--danger)' }}>{fmt(totalOwe)}</div>
           </div>
         </div>
       </div>

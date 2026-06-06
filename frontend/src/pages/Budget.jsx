@@ -57,11 +57,11 @@ export default function Budget() {
 
       {/* Summary cards */}
       <div className="grid-2" style={{ marginBottom: 24 }}>
-        <div className="card" style={{ background: 'linear-gradient(135deg,var(--accent),#8b5cf6)', color: '#fff' }}>
+        <div className="card" style={{ background: 'var(--accent)', color: '#fff' }}>
           <div style={{ opacity: .8, fontSize: 13 }}>Total Budget</div>
           <div style={{ fontSize: 28, fontWeight: 800 }}>{fmt(totalBudget)}</div>
         </div>
-        <div className="card" style={{ background: totalSpent > totalBudget ? 'linear-gradient(135deg,#ef4444,#f97316)' : 'linear-gradient(135deg,#22c55e,#16a34a)', color: '#fff' }}>
+        <div className="card" style={{ background: totalSpent > totalBudget ? 'var(--danger)' : 'var(--accent)', color: '#fff' }}>
           <div style={{ opacity: .8, fontSize: 13 }}>Total Spent</div>
           <div style={{ fontSize: 28, fontWeight: 800 }}>{fmt(totalSpent)}</div>
           {totalSpent > totalBudget && <div style={{ opacity: .8, fontSize: 12, marginTop: 4 }}>⚠ Over budget by {fmt(totalSpent - totalBudget)}</div>}
@@ -115,7 +115,7 @@ export default function Budget() {
             <ResponsiveContainer width="100%" height={280}>
               <PieChart>
                 <Pie data={pieData} cx="50%" cy="50%" outerRadius={100} dataKey="value" label={({ name, percent }) => `${name} ${(percent*100).toFixed(0)}%`} labelLine={false} fontSize={11}>
-                  {pieData.map(e => <Cell key={e.name} fill={COLORS[e.name] || '#6366f1'} />)}
+                  {pieData.map(e => <Cell key={e.name} fill={COLORS[e.name] || 'var(--accent)'} />)}
                 </Pie>
                 <Tooltip formatter={v => [fmt(v), 'Spent']} contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8 }} />
               </PieChart>

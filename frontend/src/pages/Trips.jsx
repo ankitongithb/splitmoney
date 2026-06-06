@@ -73,7 +73,7 @@ export default function Trips() {
       head: [['Date', 'Title', 'Paid By', 'Split Type', 'Amount']],
       body: tableData,
       theme: 'grid',
-      headStyles: { fillColor: [79, 70, 229] }
+      headStyles: { fillColor: [26, 107, 60] }
     })
     
     doc.setFontSize(12)

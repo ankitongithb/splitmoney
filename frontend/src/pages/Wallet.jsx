@@ -61,9 +61,9 @@ export default function Wallet() {
     <div>
       {/* Wallet Card */}
       <div style={{
-        background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+        background: 'var(--accent)',
         borderRadius: 20, padding: 32, marginBottom: 24, color: '#fff',
-        boxShadow: '0 8px 32px rgba(99,102,241,0.4)'
+        boxShadow: 'var(--shadow-md)'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
           <WalletIcon size={28} />

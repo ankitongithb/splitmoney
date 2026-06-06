@@ -25,10 +25,10 @@ export default function Dashboard() {
   if (loading) return <div className="loading-page"><div className="spinner spinner-lg" /></div>
 
   const stats = [
-    { label: 'This Month', value: fmt(data?.totalExpensesThisMonth), icon: TrendingUp, color: '#6366f1', bg: '#e0e7ff', change: data?.totalExpensesLastMonth > 0 ? `vs ${fmt(data?.totalExpensesLastMonth)} last month` : null },
-    { label: 'Wallet Balance', value: fmt(data?.walletBalance), icon: Wallet, color: '#22c55e', bg: '#dcfce7' },
-    { label: 'You are Owed', value: fmt(data?.totalOwed), icon: ArrowUpRight, color: '#3b82f6', bg: '#dbeafe' },
-    { label: 'You Owe', value: fmt(data?.totalOwe), icon: ArrowDownRight, color: '#ef4444', bg: '#fee2e2' },
+    { label: 'Total Expenses', value: fmt(data?.totalExpensesThisMonth), icon: TrendingUp, color: '#1a6b3c', bg: '#dcfce7', change: data?.totalExpensesLastMonth > 0 ? `vs ${fmt(data?.totalExpensesLastMonth)} last month` : null },
+    { label: 'Wallet Balance', value: fmt(data?.walletBalance), icon: Wallet, color: '#16a34a', bg: '#d1fae5' },
+    { label: 'You are Owed', value: fmt(data?.totalOwed), icon: ArrowUpRight, color: '#0d9488', bg: '#ccfbf1' },
+    { label: 'You Owe', value: fmt(data?.totalOwe), icon: ArrowDownRight, color: '#dc2626', bg: '#fee2e2' },
   ]
 
   const pieData = Object.entries(data?.categoryBreakdown || {}).map(([name, value]) => ({ name, value: Number(value) }))
@@ -66,15 +66,15 @@ export default function Dashboard() {
               <AreaChart data={monthlyData}>
                 <defs>
                   <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#6366f1" stopOpacity={0.3} />
-                    <stop offset="95%" stopColor="#6366f1" stopOpacity={0} />
+                    <stop offset="5%" stopColor="#1a6b3c" stopOpacity={0.3} />
+                    <stop offset="95%" stopColor="#1a6b3c" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
                 <XAxis dataKey="month" tick={{ fontSize: 11, fill: 'var(--text-muted)' }} />
                 <YAxis tick={{ fontSize: 11, fill: 'var(--text-muted)' }} tickFormatter={v => `₹${v/1000}k`} />
                 <Tooltip formatter={v => [fmt(v), 'Spent']} contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8 }} />
-                <Area type="monotone" dataKey="amount" stroke="#6366f1" strokeWidth={2.5} fill="url(#grad)" />
+                <Area type="monotone" dataKey="amount" stroke="#1a6b3c" strokeWidth={2.5} fill="url(#grad)" />
               </AreaChart>
             </ResponsiveContainer>
           ) : <div className="empty-state"><p>No expense data yet</p></div>}
@@ -89,7 +89,7 @@ export default function Dashboard() {
                   dataKey="value" paddingAngle={3} label={({ name, percent }) => `${name} ${(percent*100).toFixed(0)}%`}
                   labelLine={false} fontSize={11}>
                   {pieData.map(e => (
-                    <Cell key={e.name} fill={CATEGORY_COLORS[e.name] || '#6366f1'} />
+                    <Cell key={e.name} fill={CATEGORY_COLORS[e.name] || '#1a6b3c'} />
                   ))}
                 </Pie>
                 <Tooltip formatter={v => [fmt(v), '']} contentStyle={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 8 }} />
