@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { AuthProvider } from './context/AuthContext'
+import { AuthProvider, useAuth } from './context/AuthContext'
 import { ThemeProvider } from './context/ThemeContext'
 import ProtectedRoute from './components/ProtectedRoute'
 import Sidebar from './components/Sidebar'
@@ -16,6 +16,7 @@ import Payments from './pages/Payments'
 import Budget from './pages/Budget'
 import Reports from './pages/Reports'
 import Calculator from './pages/Calculator'
+import Landing from './pages/Landing'
 
 function AppLayout({ children }) {
   return (
@@ -29,6 +30,12 @@ function AppLayout({ children }) {
   )
 }
 
+function HomeRoute() {
+  const { isAuthenticated, loading } = useAuth()
+  if (loading) return <div className="loading-page"><div className="spinner spinner-lg" /></div>
+  return isAuthenticated ? <AppLayout><Dashboard /></AppLayout> : <Landing />
+}
+
 export default function App() {
   return (
     <ThemeProvider>
@@ -37,7 +44,7 @@ export default function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/" element={<ProtectedRoute><AppLayout><Dashboard /></AppLayout></ProtectedRoute>} />
+            <Route path="/" element={<HomeRoute />} />
             <Route path="/expenses" element={<ProtectedRoute><AppLayout><Expenses /></AppLayout></ProtectedRoute>} />
             <Route path="/friends" element={<ProtectedRoute><AppLayout><Friends /></AppLayout></ProtectedRoute>} />
             <Route path="/trips" element={<ProtectedRoute><AppLayout><Trips /></AppLayout></ProtectedRoute>} />

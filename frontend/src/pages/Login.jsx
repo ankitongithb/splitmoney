@@ -34,7 +34,7 @@ export default function Login() {
         borderRadius: 24, overflow: 'hidden', boxShadow: 'var(--shadow-lg)'
       }}>
         {/* Left Side - Illustration */}
-        <div style={{ flex: 1, background: '#f5f9f6', display: 'flex', flexDirection: 'column', padding: 40, position: 'relative' }}>
+        <div className="auth-image-col" style={{ flex: 1, background: '#f5f9f6', display: 'flex', flexDirection: 'column', padding: 40, position: 'relative' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <div style={{ width: 36, height: 36, borderRadius: 8, background: 'var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <TrendingUp size={20} color="#fff" />
@@ -47,7 +47,7 @@ export default function Login() {
         </div>
 
         {/* Right Side - Form */}
-        <div style={{ flex: 1, padding: '60px 80px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div className="auth-form-col" style={{ flex: 1, padding: '60px 80px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <div style={{ marginBottom: 32 }}>
             <h1 style={{ fontSize: 28, fontWeight: 800, color: '#111', marginBottom: 8 }}>Login</h1>
             <h2 style={{ fontSize: 18, fontWeight: 600, color: '#333', marginBottom: 4 }}>Welcome back!</h2>

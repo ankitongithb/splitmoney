@@ -95,6 +95,13 @@ export default function Sidebar() {
           ))}
         </nav>
 
+        {/* Target Illustration */}
+        <div style={{ padding: '0 16px 16px', display: 'flex', justifyContent: 'center' }}>
+          <div style={{ width: '100%', borderRadius: 16, overflow: 'hidden' }}>
+            <img src="/sidebar-target.png" alt="Target" style={{ width: '100%', height: 'auto', display: 'block' }} />
+          </div>
+        </div>
+
         {/* User */}
         <div style={{ padding: '16px 12px', borderTop: '1px solid var(--border)' }}>
           <div className="flex-between" style={{ padding: '8px 10px', borderRadius: 10, background: 'var(--bg-input)' }}>
